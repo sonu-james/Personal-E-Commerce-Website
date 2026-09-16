@@ -1,33 +1,19 @@
+import Hero from "../components/Hero";
+import NavBar from "../components/NavBar";
+
+
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-gray-900">
-      {/* Header */}
-      <header className="border-b">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <h1 className="text-2xl font-bold tracking-wide">
-            Luna Fashion
-          </h1>
-
-          <nav className="flex gap-6 text-sm">
-            <a href="#" className="hover:text-pink-600">
-              Home
-            </a>
-            <a href="#" className="hover:text-pink-600">
-              Shop
-            </a>
-            <a href="#" className="hover:text-pink-600">
-              About
-            </a>
-            <a href="#" className="hover:text-pink-600">
-              Contact
-            </a>
-          </nav>
-        </div>
-      </header>
+    <>
+       <main className="min-h-screen bg-white text-gray-900">
+    
+<NavBar/>
+      
+      
 
       {/* Hero Section */}
-      <section className="bg-pink-50">
+      {/* <section className="bg-pink-50">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center">
           <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-pink-600">
             New Collection
@@ -46,7 +32,8 @@ export default function Home() {
             Shop Now
           </button>
         </div>
-      </section>
+      </section> */}
+      <Hero/>
 
       {/* Categories */}
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -103,6 +90,8 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </>
+ 
   );
 }
 
