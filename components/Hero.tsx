@@ -1,7 +1,7 @@
 // Hero component - build it yourself
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 
 const slides = [
@@ -36,9 +36,16 @@ const slides = [
 
 function Hero() {
   const [activeSlide, setActiveSlide] = useState(0);
+  useEffect(() => {
+  const interval = setInterval(() => {
+    setActiveSlide((current) => (current + 1) % slides.length);
+  }, 5000);
+
+  return () => clearInterval(interval);
+}, []);
 
   return (
-    <section className="relative h-[calc(100vh-88px)] min-h-[600px] w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden">
 
       {/* Images */}
       {slides.map((slide, index) => (
@@ -53,7 +60,9 @@ function Hero() {
           <img
             src={slide.image}
             alt={slide.title}
-            className="h-full w-full object-cover"
+           className={`h-full w-full object-cover transition-transform duration-[5000ms] ease-out ${
+    activeSlide === index ? "scale-110" : "scale-100"
+  }`}
           />
 
           {/* Dark Overlay */}
